@@ -1,4 +1,4 @@
-# ActsAsTalented [![Build Status](https://travis-ci.org/pdhar/acts_as_talented.svg)](https://travis-ci.org/pdhar/acts_as_talented.svg) [![Code Climate](https://codeclimate.com/github/pdhar/acts_as_talented/badges/gpa.svg)](https://codeclimate.com/github/pdhar/acts_as_talented)
+# ActsAsTalented [![Build Status](https://travis-ci.org/pdhar/acts_as_talented.svg)](https://travis-ci.org/pdhar/acts_as_talented.svg) [![Code Climate](https://codeclimate.com/github/pdhar/acts_as_talented/badges/gpa.svg)](https://codeclimate.com/github/pdhar/acts_as_talented) [![Gem Version](https://badge.fury.io/rb/acts_as_talented.svg)](http://badge.fury.io/rb/acts_as_talented)
 
 
 This project rocks and uses MIT-LICENSE.
