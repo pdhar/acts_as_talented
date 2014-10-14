@@ -17,6 +17,14 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency "rails", "~> 4.1.6"
+  s.add_dependency "devise"
+  s.add_dependency "cancan"
+  
+
+  s.add_dependency "bootstrap-sass", "~> 3.2"
+  s.add_dependency "sass-rails", ">= 3.2"
+  s.add_dependency "autoprefixer-rails"
+  s.add_dependency "jquery-rails"
 
   s.add_development_dependency 'pg'
   s.add_development_dependency 'rspec-rails'

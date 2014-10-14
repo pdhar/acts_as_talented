@@ -1,3 +1,5 @@
+require "devise"
+
 module ActsAsTalented
   class Engine < ::Rails::Engine
     isolate_namespace ActsAsTalented

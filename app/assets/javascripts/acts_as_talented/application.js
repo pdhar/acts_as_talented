@@ -10,4 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require_tree .
+
+//= require jquery
+//= require jquery_ujs
+ 
+//= require bootstrap/modal
+//= require bootstrap/tab
+//= require bootstrap/alert
+//= require bootstrap/collapse
+//= require bootstrap/dropdown
+//= require bootstrap/button
