@@ -20,3 +20,12 @@
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
 //= require bootstrap/button
+
+//= require angular
+//= require angular-resource
+//= require angular-route
+//= require angular-rails-templates
+
+//= require_tree ./dependancies/
+//= require_tree ./angularjs/
+//= require_tree ./templates/

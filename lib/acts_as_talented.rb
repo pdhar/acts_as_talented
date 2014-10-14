@@ -4,6 +4,8 @@ require "jquery-rails"
 require "bootstrap-sass"
 require "sass-rails"
 require "autoprefixer-rails"
+require "angularjs-rails"
+require "angular-rails-templates"
 
 module ActsAsTalented
 	class << self

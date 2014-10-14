@@ -5,7 +5,7 @@ module ActsAsTalented
 		before_action :authenticate_employer!
 
   	def index
-  		binding.pry
+
   	end
   end
 end

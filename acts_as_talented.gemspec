@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.add_dependency "devise"
   s.add_dependency "cancan"
   
+  s.add_dependency "angularjs-rails"
+  s.add_dependency "angular-rails-templates"
 
   s.add_dependency "bootstrap-sass", "~> 3.2"
   s.add_dependency "sass-rails", ">= 3.2"
