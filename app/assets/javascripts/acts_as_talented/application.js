@@ -27,5 +27,9 @@
 //= require angular-rails-templates
 
 //= require_tree ./dependancies/
-//= require_tree ./angularjs/
+
+//= require ./angularjs/app
+//= require ./angularjs/employer/EmployersController
+//= require ./angularjs/employer/EmployersFactory
+
 //= require_tree ./templates/
