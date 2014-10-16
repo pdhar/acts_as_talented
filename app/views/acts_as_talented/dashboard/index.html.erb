@@ -1,11 +1,33 @@
 <div class="container" ng-cloak>
 
-  <ul class="nav nav-tabs nav-justified" role="tablist">
-	  <li class="active"><a href="#">Manage Employers</a></li>
-	  <li><a ui-sref="myJobs">My Job Posts</a></li>
-	  <li><a ui-sref="searchCandidate">Search Candidates</a></li>
-	  <li><a ui-sref="myProfile">My Profile</a></li>
-	  <li><a ui-sref="jobAnalytics">Analytics</a></li>
+  <span ng-init=""></span>
+
+  {{ tabClass }}
+  <ul ng-controller="TabsController" class="nav nav-tabs nav-justified" role="tablist">
+	  <!-- Tab1 -->
+    <li ng-class="tabClass['tab1']" ng-click="makeActiveTab('tab1')">
+      <a href="#">Manage Employers</a>
+    </li>
+    
+    <!-- Tab2 -->
+	  <li ng-class="tabClass['tab2']" ng-click="makeActiveTab('tab2')">
+      <a ui-sref="myJobs">My Job Posts</a>
+    </li>
+
+    <!-- Tab3 -->
+	  <li ng-class="tabClass['tab3']" ng-click="makeActiveTab('tab3')">
+      <a ui-sref="searchCandidate">Search Candidates</a>
+    </li>
+
+    <!-- Tab4 -->
+	  <li ng-class="tabClass['tab4']" ng-click="makeActiveTab('tab4')">
+      <a ui-sref="myProfile">My Profile</a>
+    </li>
+
+    <!-- Tab5 -->
+	  <li ng-class="tabClass['tab5']" ng-click="makeActiveTab('tab5')">
+      <a ui-sref="jobAnalytics">Analytics</a>
+    </li>
 	</ul>
 
   <div ui-view>

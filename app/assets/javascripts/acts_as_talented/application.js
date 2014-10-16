@@ -29,6 +29,7 @@
 //= require_tree ./dependancies/
 
 //= require ./angularjs/app
+//= require ./angularjs/TabsController
 //= require ./angularjs/employer/EmployersController
 //= require ./angularjs/employer/EmployersFactory
 
