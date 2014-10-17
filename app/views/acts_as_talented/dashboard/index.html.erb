@@ -5,27 +5,27 @@
   {{ tabClass }}
   <ul ng-controller="TabsController" class="nav nav-tabs nav-justified" role="tablist">
 	  <!-- Tab1 -->
-    <li ng-class="tabClass['tab1']" ng-click="makeActiveTab('tab1')">
+    <li ng-class="tabClass['Employers']" ng-click="makeActiveTab('Employers')">
       <a href="#">Manage Employers</a>
     </li>
     
     <!-- Tab2 -->
-	  <li ng-class="tabClass['tab2']" ng-click="makeActiveTab('tab2')">
+	  <li ng-class="tabClass['myJobs']" ng-click="makeActiveTab('myJobs')">
       <a ui-sref="myJobs">My Job Posts</a>
     </li>
 
     <!-- Tab3 -->
-	  <li ng-class="tabClass['tab3']" ng-click="makeActiveTab('tab3')">
+	  <li ng-class="tabClass['searchCandidate']" ng-click="makeActiveTab('searchCandidate')">
       <a ui-sref="searchCandidate">Search Candidates</a>
     </li>
 
     <!-- Tab4 -->
-	  <li ng-class="tabClass['tab4']" ng-click="makeActiveTab('tab4')">
+	  <li ng-class="tabClass['myProfile']" ng-click="makeActiveTab('myProfile')">
       <a ui-sref="myProfile">My Profile</a>
     </li>
 
     <!-- Tab5 -->
-	  <li ng-class="tabClass['tab5']" ng-click="makeActiveTab('tab5')">
+	  <li ng-class="tabClass['jobAnalytics']" ng-click="makeActiveTab('jobAnalytics')">
       <a ui-sref="jobAnalytics">Analytics</a>
     </li>
 	</ul>
