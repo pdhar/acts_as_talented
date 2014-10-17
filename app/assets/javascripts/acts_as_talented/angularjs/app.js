@@ -12,16 +12,17 @@ ActsAsTalentedModule.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('searchCandidate', {
       url: "/searchCandidate",
-      templateUrl: "acts_as_talented/templates/search_candidate.html"
+      templateUrl: "acts_as_talented/templates/search_candidate.html",
+      controller: "UserSearchController"
     })
     .state('myProfile', {
       url: "/myProfile",
-      templateUrl: "acts_as_talented/templates/my_profile.html",
-      controller: "ProfileController"
-    })
-    .state('jobAnalytics', {
-      url: "/jobAnalytics",
-      templateUrl: "acts_as_talented/templates/job_analytics.html"
+      templateUrl: "acts_as_talented/templates/my_profile.html"
+    })    
+    .state('myApplicants', {
+      url: "/myApplicants",
+      templateUrl: "acts_as_talented/templates/my_applicants.html",
+      controller: "ApplicantsController"
     })
 	  .state('Employers', {
       url: "/Employers",

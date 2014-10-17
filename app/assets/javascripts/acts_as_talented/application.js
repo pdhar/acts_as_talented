@@ -34,5 +34,9 @@
 //= require ./angularjs/ProfileController
 //= require ./angularjs/employer/EmployersController
 //= require ./angularjs/employer/EmployersFactory
+//= require ./angularjs/applicant/ApplicantsController
+//= require ./angularjs/applicant/ApplicantsFactory
+//= require ./angularjs/user/UserSearchController
+//= require ./angularjs/user/UserSearchFactory
 
 //= require_tree ./templates/
