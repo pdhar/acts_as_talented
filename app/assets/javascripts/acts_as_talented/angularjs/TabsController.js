@@ -1,11 +1,15 @@
-ActsAsTalentedModule.controller("TabsController", function ($scope) {
-  
-  $scope.tabClass = { tab1: 'active', 
-                      tab2: 'inactive', 
-                      tab3: 'inactive', 
-                      tab4: 'inactive', 
-                      tab5: 'inactive'
+ActsAsTalentedModule.controller("TabsController", function ($scope, $state) {
+
+  $scope.tabClass = { myJobs: 'inactive', 
+                      myJobs: 'inactive', 
+                      searchCandidate: 'inactive', 
+                      myProfile: 'inactive', 
+                      jobAnalytics: 'inactive'
                     }
+
+  $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    $scope.tabClass[toState.name] = 'active';
+  });
 
   $scope.makeActiveTab = function(tab) {
 

@@ -16,5 +16,7 @@
  *= require ./banner
  *= require ./typography
  *= require ./login
+ *= require ./toastr.min
+ 
  *= require_self
  */
