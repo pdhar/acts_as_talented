@@ -61,11 +61,11 @@
       <td style="vertical-align:middle">
         <!--Name read mode-->
         <span ng-show="knownItem.editMode == null || knownItem.editMode == false" ng-dblclick="toggleEditMode(knownItem)">
-            {{knownItem.name}}
+          {{knownItem.name}}
         </span>
         <!--Name edit mode-->
         <form name="editForm">
-            <input ng-model="knownItem.name" ng-show="knownItem.editMode" required ng-keydown="updateOnEnter(knownItem, $event)" class="form-control" />
+          <input ng-model="knownItem.name" ng-show="knownItem.editMode" required ng-keydown="updateOnEnter(knownItem, $event)" class="form-control" />
         </form>
       </td>
   	</tr>

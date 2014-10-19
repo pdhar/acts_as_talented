@@ -6,6 +6,7 @@ require "sass-rails"
 require "autoprefixer-rails"
 require "angularjs-rails"
 require "angular-rails-templates"
+require "protected_attributes"
 
 module ActsAsTalented
 	class << self
