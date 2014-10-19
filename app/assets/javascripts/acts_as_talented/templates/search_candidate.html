@@ -171,17 +171,23 @@
     float: left;
     padding: 1%; 
   }
+
+  .bevy-user-properties .button_main{
+    float: left;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
   .bevy-user-card .heading{
     width: 50%;
     float: left;
   }
-  .bevy-user-card div.heading:nth-child(2){
+  /*.bevy-user-card div.heading:nth-child(2){
     text-align: right;
-  }
+  }*/
   .bevy-user-card .module .caption{
-    width: 50%;
+    width: 45%;
     float: left;
-    clear: both;
     padding: 10px 0px;
   }
   .bevy-user-card .body-desc{
@@ -208,7 +214,10 @@
     font-size: 0.75em;
     margin-right: 0.5em;
   }
-
+  .button_main{
+    color: #f9f9f9 !important;
+    background-color: #da521e;
+  }
 
 </style>
 <div ng-controller="UserSearchController">
@@ -226,7 +235,7 @@
   <!-- show indeed results on landing -->
     <div class="bevy-user-filter">
       <h2>Filters</h2>
-      <div class="module">
+      <div class="module" data-spy="affix" data-offset-top="150" data-offset-bottom="100">
         <!-- hide initially -->
         <div ng-show="jobs.q.length">
           <div class="heading">Sort</div>
@@ -321,6 +330,7 @@
           <button class="button button-white" ng-click="searchJobs()">Apply</button>
         </div>
       </div>
+    </div>
 
     <div class="bevy-user-search-content">
       <div ng-hide="no_search_term">
@@ -331,32 +341,34 @@
             </div>
 
             <div class="module">
-              <div class="caption">
-                <h2 ng-bind="user.name"></h2>  
-                
-                <i class="fa fa-user"></i> <span class="caption" ng-bind="user.age"></span>
-                <i class="fa fa-briefcase"></i> <span class="caption" ng-bind="user.status"></span><br />
-                <i class="fa fa-globe"></i> <span class="caption" ng-bind="user.location"></span>                
-                <i class="fa fa-book"></i> <span class="caption" ng-bind="user.course"></span><br />
-                <i class="fa fa-graduation-cap"></i> <span class="caption" ng-bind="user.graduation_year"></span>
+              <h2 ng-bind="user.name"></h2> 
+              <div class="caption">                
+                <i class="fa fa-birthday-cake"></i> <span ng-bind="user.age"></span>
+                <i class="fa fa-briefcase"></i> <span ng-bind="user.status"></span><br />
+                <i class="fa fa-globe"></i> <span ng-bind="user.location"></span>                
+                <i class="fa fa-book"></i> <span ng-bind="user.course"></span><br />
+                <i class="fa fa-graduation-cap"></i> <span ng-bind="user.graduation_year"></span>
               </div>
             
               <div class="caption">
-                <i class="fa fa-user"></i> <span class="caption" ng-bind="user.skills"></span><br />
-                <i class="fa fa-book"></i> <span class="caption" ng-bind="user.interests"></span><br />
-                <i class="fa fa-graduation-cap"></i> <span class="caption" ng-bind="user.experience"></span>
+                <i class="fa fa-user"></i> <span ng-bind="user.skills"></span><br />
+                <i class="fa fa-book"></i> <span ng-bind="user.interests"></span><br />
+                <i class="fa fa-graduation-cap"></i> <span ng-bind="user.experience"></span>
               </div>  
             </div>
 
-            <div class="user-properties">              
-              <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume</a>
+            <div class="bevy-user-properties">              
+              <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume</a><br />
               <select>
-                <option>starred</option> 
-                <option>ignored</option>
-                <option>accepted</option>
-                <option>messaged</option>
-              </select>
-              <a href="#" class="fa fa-envelope"></a>
+                <option>Web Developer</option> 
+                <option>Software Engineer</option>
+                <option>Data Analytics</option>
+                <option>Marketing</option>
+              </select><br />
+              <a href="#" class="fa fa-star" style="color: #DA521E;"></a>
+              <a href="#" class="fa fa-close" style="color: #DA521E;"></a>
+              <a href="#" class="fa fa-check" style="color: #DA521E;"></a>
+              <a href="#" class="fa fa-envelope" style="color: #DA521E;"></a>
 
             </div>
 
@@ -392,7 +404,7 @@
 
     <div class="bevy-user-list">
       <h2>Lists</h2>
-      <ul>
+      <ul data-spy="affix" data-offset-top="150" data-offset-bottom="100">
         <li><a href="#" >Starred</a></li>
         <li><a href="#" >Ignored</a></li>
         <li><a href="#" >Accepted</a></li>
