@@ -2,7 +2,13 @@ ActsAsTalentedModule.controller("ApplicantsController", function ($scope, Applic
  
   // init variables
   $scope.no_messages=true;
-  $scope.focusedMsg = null ; 
+  $scope.focusedMsg = null ;
+
+  $scope.filter_position = [
+    {name: "Vigilante"}, 
+    {name: "Coder"}, 
+    {name: "Gamer"}
+  ];
 
   // PRIVATE FUNCTIONS 
   var requestSuccess = function () {
