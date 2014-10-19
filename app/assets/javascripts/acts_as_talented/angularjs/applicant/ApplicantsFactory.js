@@ -3,24 +3,24 @@ ActsAsTalentedModule.factory("ApplicantsFactory", function ($resource) {
     messages: function(){
       var msgs = [
         {
-          sender: "Batman",
+          name: "Batman",
           job_position: "Vigilante",
           message: "I consider myself a worthy candidate, Dark Knight",
-          sender_id: 1,
+          id: 0,
           resume: "Cool file/link here"
         },
         {
-          sender: "Superman",
-          job_position: "Vigilante",
+          name: "Superman",
+          job_position: "Gamer",
           message: "I consider myself a worthy candidate, Man of Steel",
-          sender_id: 2,
+          id: 1,
           resume: "Cool file/link here"
         },
         {
-          sender: "Flash",
-          job_position: "Vigilante",
+          name: "Flash",
+          job_position: "Coder",
           message: "I consider myself a worthy candidate, Fastest man!",
-          sender_id: 3,
+          id: 2,
           resume: "Cool file/link here"
         }
       ];

@@ -1,4 +1,4 @@
-ActsAsTalentedModule.factory("UserSearchFactory", function ($resource) {
+ActsAsTalentedModule.factory("UsersFactory", function ($resource) {
   return {
     users: function(){
       var users = [

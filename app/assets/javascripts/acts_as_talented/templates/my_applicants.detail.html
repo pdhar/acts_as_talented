@@ -1,0 +1,35 @@
+ <div ng-hide="no_messages">
+  <div>
+    <div class="bevy-message-card">
+      <div class="heading">
+        <h2 ng-bind="user.name"></h2>  
+      </div>
+      <div class="heading">
+        <i class="fa fa-briefcase"></i> <span class="caption" ng-bind="user.job_position"></span>
+      </div>
+
+      <div class="body-desc">
+        <p ng-bind="user.message"></p>  
+      </div>
+
+      <div class="body-apply">
+        <a ng-href="{{user.resume}}" class="button button_main" target="_blank"><i class="fa fa-check"></i> View Resume</a>
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+
+  </div>
+  <!-- <div ng-show="totalResults > 0" class="pagination">
+    <a href="#" ng-show="currentPage!=1" ng-click="paginate(1)">&lt;&lt;</a>
+    <a href="#" ng-show="currentPage!=1" ng-click="paginate(currentPage-1)">Prev</a>
+    <a href="#" ng-show="currentPage!=1" ng-click="paginate(currentPage-1)" ng-bind="currentPage-1"></a>
+    <a href="#" ng-bind="currentPage" class="active"></a>
+    <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(currentPage+1)" ng-bind="currentPage+1"></a>
+    <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(currentPage+1)">Next</a>
+    <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(totalPages)">&gt;&gt;</a>
+  </div> -->
+
+  <div class="module text-center" ng-hide="user">
+    None selected.
+  </div>      
+</div>
