@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_talented (0.0.1)
+    acts_as_talented (0.0.2)
       angular-rails-templates
       angularjs-rails
       autoprefixer-rails
