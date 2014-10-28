@@ -50,7 +50,7 @@ module ActsAsTalented
 
       it 'PUT /api/v1/employers.json' do
         put :update, {:id => admin.to_param, :employer => { "name" => "Test Man" }}
-        
+        expect(admin.reload.name).to eq("Test Man")
       end
     end
 
