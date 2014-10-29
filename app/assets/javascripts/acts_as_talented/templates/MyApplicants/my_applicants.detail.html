@@ -1,0 +1,20 @@
+ <div ng-hide="no_messages" class="">
+
+  <div class="heading">
+    <h2 ng-bind="user.name"></h2>  
+  </div>
+  <div class="heading">
+    <i class="fa fa-briefcase"></i> <span class="caption" ng-bind="user.job_position"></span>
+  </div>
+
+  <div class="body-desc">
+    <p ng-bind="user.message"></p>  
+  </div>
+
+  <div class="body-apply">
+    <a ng-href="{{user.resume}}" class="button button_main" target="_blank"><i class="fa fa-check"></i> View Resume</a>
+  </div>
+  <div style="clear: both;"></div>
+  
+  
+</div>

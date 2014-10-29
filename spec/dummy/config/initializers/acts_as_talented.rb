@@ -1,3 +1,3 @@
 ActsAsTalented.setup do |config|
-  config.your_config_var = "nyan cat"
+  config.engine_mount_path = "nyan cat"
 end

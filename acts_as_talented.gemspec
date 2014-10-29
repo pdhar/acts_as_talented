@@ -27,17 +27,17 @@ Gem::Specification.new do |s|
   s.add_dependency "sass-rails", ">= 3.2"
   s.add_dependency "autoprefixer-rails"
   s.add_dependency "jquery-rails"
+  s.add_dependency "populator"
+  s.add_dependency "faker"
 
-  s.add_development_dependency 'populator'
-  s.add_development_dependency 'faker'
-  s.add_development_dependency 'pg'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'factory_girl_rails'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'codeclimate-test-reporter'
+  s.add_development_dependency "pg"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "shoulda-matchers"
+  s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "codeclimate-test-reporter"
 
   s.test_files = Dir["spec/**/*"]
 end

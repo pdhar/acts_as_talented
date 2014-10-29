@@ -8,7 +8,9 @@ PATH
       bootstrap-sass (~> 3.2)
       cancan
       devise
+      faker
       jquery-rails
+      populator
       protected_attributes
       rails (~> 4.1.6)
       sass-rails (>= 3.2)
@@ -48,7 +50,7 @@ GEM
       tilt
     angularjs-rails (1.2.14)
     arel (5.0.1.20140414130214)
-    autoprefixer-rails (3.1.1.20141001)
+    autoprefixer-rails (3.1.2.20141016)
       execjs
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.2)
@@ -185,9 +187,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   database_cleaner
   factory_girl_rails
-  faker
   pg
-  populator
   pry
   rspec-rails
   shoulda-matchers

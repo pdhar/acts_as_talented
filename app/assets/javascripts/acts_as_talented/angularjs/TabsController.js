@@ -4,7 +4,7 @@ ActsAsTalentedModule.controller("TabsController", function ($scope, $state) {
                       myJobs: 'inactive', 
                       searchCandidate: 'inactive', 
                       myProfile: 'inactive', 
-                      jobAnalytics: 'inactive'
+                      'myApplicants.list': 'inactive'
                     }
 
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {

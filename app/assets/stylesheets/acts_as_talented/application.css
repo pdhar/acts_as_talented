@@ -17,6 +17,7 @@
  *= require ./typography
  *= require ./login
  *= require ./toastr.min
- 
+ *= require ./applicants
+
  *= require_self
  */

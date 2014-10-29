@@ -1,5 +1,4 @@
-<style type="text/css">
-  .bevy-job-form input {
+.bevy-job-form input {
     max-width: 58%;
   }
   .bevy-job-form button {
@@ -98,32 +97,3 @@
     font-size: 0.75em;
     margin-right: 0.5em;
   }
-
-
-</style>
-
-<!-- <div ui-view></div> -->
-
-<div id="main-container">
-  
-<!-- show indeed results on landing -->
-  <!-- <div class="bevy-filter-list">
-    Filter by job position: <br />
-    <select ng-model="position" ng-options="position.name for position in filter_position"></select>
-  </div> -->
-  <div class="bevy-applicant-list">
-    <h2>Applicants</h2>
-    <div class="module" ng-init="getAllItems()">
-      <div class="module text-center" ng-show="no_messages">
-        No Messages
-      </div> 
-      <div ui-view></div>
-    </div>
-  </div>
-
-  <div class="bevy-applicant-messages">
-    <div class="module text-center" ng-show="no_messages">
-      No Applicants yet.
-    </div>
-  </div>    
-</div>

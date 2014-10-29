@@ -23,16 +23,16 @@ ActsAsTalentedModule.config(function ($stateProvider, $urlRouterProvider) {
     .state('myApplicants', {
       abstract: true,
       url: "/myApplicants",
-      templateUrl: "acts_as_talented/templates/my_applicants.html",
+      templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.html",
       controller: "ApplicantsController"     
     })
     .state('myApplicants.list', { 
       url: "/list",
-      templateUrl: "acts_as_talented/templates/my_applicants.list.html"              
+      templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.list.html"              
     })
     .state('myApplicants.detail', {      
       url: '/:id',
-      templateUrl: 'acts_as_talented/templates/my_applicants.detail.html',
+      templateUrl: 'acts_as_talented/templates/MyApplicants/my_applicants.detail.html',
       controller: function($scope, $stateParams){
         $scope.user = $scope.applicantsList[$stateParams.id];
       }        
