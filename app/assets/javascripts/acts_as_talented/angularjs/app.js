@@ -1,6 +1,6 @@
 var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ngResource", "templates"]);
  
-ActsAsTalentedModule.config(function ($stateProvider, $urlRouterProvider) {
+ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
  
   // For any unmatched URL, redirect to stock
   $urlRouterProvider.otherwise("/Employers");
@@ -43,9 +43,9 @@ ActsAsTalentedModule.config(function ($stateProvider, $urlRouterProvider) {
       controller: "EmployersController"
 	  });
 
-});
+}]);
 
-ActsAsTalentedModule.directive('showErrors', function ($timeout, showErrorsConfig) {
+ActsAsTalentedModule.directive('showErrors', ["$timeout", "showErrorsConfig", function ($timeout, showErrorsConfig) {
   var getShowSuccess, linkFn;
     
   getShowSuccess = function (options) {
@@ -108,7 +108,7 @@ ActsAsTalentedModule.directive('showErrors', function ($timeout, showErrorsConfi
     }
   };
 
-});
+}]);
 
 ActsAsTalentedModule.provider('showErrorsConfig', function () {
   var _showSuccess;
