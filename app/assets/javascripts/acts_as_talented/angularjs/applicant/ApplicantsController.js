@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("ApplicantsController", function ($scope, ApplicantsFactory) {
+ActsAsTalentedModule.controller("ApplicantsController", ["$scope", "ApplicantsFactory", function ($scope, ApplicantsFactory) {
  
   // init variables
   $scope.no_messages=true;
@@ -47,4 +47,4 @@ ActsAsTalentedModule.controller("ApplicantsController", function ($scope, Applic
     $scope.no_messages = false;    
   }
 
-});
+}]);

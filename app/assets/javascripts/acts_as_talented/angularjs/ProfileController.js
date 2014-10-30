@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller('ProfileController', function($scope) {
+ActsAsTalentedModule.controller('ProfileController', ["$scope", function($scope) {
   $scope.save = function() {
     $scope.$broadcast('show-errors-check-validity');
     
@@ -12,4 +12,4 @@ ActsAsTalentedModule.controller('ProfileController', function($scope) {
     $scope.$broadcast('show-errors-reset');
     $scope.user = { name: '', email: '' };
   }
-});
+}]);

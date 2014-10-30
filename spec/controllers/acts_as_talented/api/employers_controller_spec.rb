@@ -43,11 +43,15 @@ module ActsAsTalented
         sign_in admin
       end      
 
-      it 'GET /api/v1/users.json' do
+      it 'GET /api/v1/employers.json' do
         get :index, format: :json
         expect(json.count).to eq(1)
       end
 
+      it 'PUT /api/v1/employers.json' do
+        put :update, {:id => admin.to_param, :employer => { "name" => "Test Man" }}
+        expect(admin.reload.name).to eq("Test Man")
+      end
     end
 
   end

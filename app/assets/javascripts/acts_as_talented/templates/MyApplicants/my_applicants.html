@@ -1,0 +1,35 @@
+<div id="main-container">
+
+  <div>
+    
+
+    <div class="module bevy-applicant-list" ng-init="getAllItems()">
+
+      <h2>Applicants</h2>
+
+      <div class="module text-center" ng-show="no_messages">
+        No Messages
+      </div>
+      
+      <div ng-repeat="user in applicantsList">
+        <a ng-href="#/myApplicants/{{user.id}}">
+          <b><span ng-bind="user.name"></span></b><br />
+          <span ng-bind="user.job_position"></span>
+          <p ng-bind="user.message"></p>
+        </a>  
+        <hr />
+      </div>
+
+      
+    </div>
+
+    <div ui-view></div>
+
+  </div>
+
+  <div class="bevy-applicant-messages">
+    <div class="module text-center" ng-show="no_messages">
+      No Applicants yet.
+    </div>
+  </div>    
+</div>

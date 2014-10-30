@@ -8,8 +8,8 @@
       <!--Buttons column-->
       <th style="width: 100px;">
           <!--Add + Cancel-->
-          <div class="btn-toolbar"><i class="btn glyphicon glyphicon-plus" ng-click="toggleAddMode()" title="Add" ng-hide="addMode"></i></div>
-          <div class="btn-toolbar"><i class="btn glyphicon glyphicon-minus" ng-click="toggleAddMode()" title="Cancel" ng-show="addMode"></i></div>
+          <div class="btn-toolbar"><i class="btn fa fa-plus" ng-click="toggleAddMode()" title="Add" ng-hide="addMode"></i></div>
+          <div class="btn-toolbar"><i class="btn fa fa-minus" ng-click="toggleAddMode()" title="Cancel" ng-show="addMode"></i></div>
       </th>
 
       <!-- Content columns-->
@@ -23,8 +23,8 @@
         <div class="btn-toolbar">
           <!--Create + Cancel-->
           <div class="btn-group">
-              <i class="btn glyphicon glyphicon-floppy-disk" ng-click="createItem()" title="Create" ng-disabled="addForm.$invalid"></i>
-              <i class="btn glyphicon glyphicon-remove" ng-click="toggleAddMode()" title="Cancel"></i>
+              <i class="btn fa fa-floppy-o" ng-click="createItem()" title="Create" ng-disabled="addForm.$invalid"></i>
+              <i class="btn fa fa-remove" ng-click="toggleAddMode()" title="Cancel"></i>
           </div>
         </div>
       </td>
@@ -43,16 +43,16 @@
         <!--Edit + Delete-->
         <div class="btn-toolbar" ng-show="knownItem.editMode == null || knownItem.editMode == false">
             <div class="btn-group">
-                <i class="btn glyphicon glyphicon-edit" ng-click="toggleEditMode(knownItem)" title="Edit"></i>
-                <i class="btn glyphicon glyphicon-trash" ng-click="deleteItem(knownItem)" title="Delete" data-toggle="modal"></i>
+                <i class="btn fa fa-edit" ng-click="toggleEditMode(knownItem)" title="Edit"></i>
+                <i class="btn fa fa-trash" ng-click="deleteItem(knownItem)" title="Delete" data-toggle="modal"></i>
             </div>
         </div>
 
         <!--Save + Cancel-->
         <div class="btn-toolbar" ng-show="knownItem.editMode">
             <div class="btn-group">
-                <i class="btn glyphicon glyphicon-floppy-disk" ng-click="updateItem(knownItem)" title="Save" ng-disabled="editForm.$invalid"></i>
-                <i class="btn glyphicon glyphicon-remove" ng-click="toggleEditMode(knownItem)" title="Cancel"></i>
+                <i class="btn fa fa-floppy-o" ng-click="updateItem(knownItem)" title="Save" ng-disabled="editForm.$invalid"></i>
+                <i class="btn fa fa-remove" ng-click="toggleEditMode(knownItem)" title="Cancel"></i>
             </div>
         </div>
       </td>
@@ -61,11 +61,11 @@
       <td style="vertical-align:middle">
         <!--Name read mode-->
         <span ng-show="knownItem.editMode == null || knownItem.editMode == false" ng-dblclick="toggleEditMode(knownItem)">
-            {{knownItem.name}}
+          {{knownItem.name}}
         </span>
         <!--Name edit mode-->
         <form name="editForm">
-            <input ng-model="knownItem.name" ng-show="knownItem.editMode" required ng-keydown="updateOnEnter(knownItem, $event)" class="form-control" />
+          <input ng-model="knownItem.name" ng-show="knownItem.editMode" required ng-keydown="updateOnEnter(knownItem, $event)" class="form-control" />
         </form>
       </td>
   	</tr>

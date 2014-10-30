@@ -6,10 +6,11 @@ require "sass-rails"
 require "autoprefixer-rails"
 require "angularjs-rails"
 require "angular-rails-templates"
+require "protected_attributes"
 
 module ActsAsTalented
 	class << self
-    attr_accessor :your_config_var
+    attr_accessor :engine_mount_path, :secret_key
   end
 
   def self.setup(&block)

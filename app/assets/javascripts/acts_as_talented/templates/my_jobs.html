@@ -1,3 +1,22 @@
 my_jobs.html
 
 this is where u add job position stuff
+
+<div id="main-container">
+  
+  <div class="bevy-applicant-list">
+    <h2>Job Posts</h2>
+    <div class="module" ng-init="getAllItems()">
+      <div class="module text-center" ng-show="no_messages">
+        No Messages
+      </div> 
+      <div ui-view></div>
+    </div>
+  </div>
+
+  <div class="bevy-applicant-messages">
+    <div class="module text-center" ng-show="no_messages">
+      No Job Posts yet.
+    </div>
+  </div>    
+</div>

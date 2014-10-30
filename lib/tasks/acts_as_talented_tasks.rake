@@ -1,4 +1,5 @@
 require 'populator'
+require 'faker'
 
 desc "add sample employers"
 
@@ -8,7 +9,7 @@ task add_sample_employers: :environment do
 
 	  e = Employer.new
 	  e.name = "Pranav Dhar"
-	  e.email = "pranav@test.com"
+	  e.email = "admin@test.com"
 	  e.password = "password"
 	  e.save!
 
