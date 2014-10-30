@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("UsersController", function ($scope, UsersFactory) {
+ActsAsTalentedModule.controller("UsersController", ["$scope", "UsersFactory", function ($scope, UsersFactory) {
  
   // init variables
   $scope.no_results=true;
@@ -41,4 +41,4 @@ ActsAsTalentedModule.controller("UsersController", function ($scope, UsersFactor
     $scope.no_results = false;    
   }
 
-});
+}]);

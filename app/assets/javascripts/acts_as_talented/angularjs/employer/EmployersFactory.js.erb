@@ -1,5 +1,5 @@
-ActsAsTalentedModule.factory("EmployersFactory", function ($resource) {
-    return $resource('<%= ActsAsTalented.engine_mount_path %>api/v1/employers/:id',
+ActsAsTalentedModule.factory("EmployersFactory", ["$resource", function ($resource) {
+    return $resource('/<%= ActsAsTalented.engine_mount_path %>api/v1/employers/:id',
     {
       // default URL params
       // @ Indicates that the value should be obtained from a data property
@@ -9,4 +9,4 @@ ActsAsTalentedModule.factory("EmployersFactory", function ($resource) {
       // add update to actions (is not defined by default)
       'update': { method: 'PUT' }
     });
-});
+}]);

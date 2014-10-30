@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("UserSearchController", function ($scope, UserSearchFactory) {
+ActsAsTalentedModule.controller("UserSearchController", ["$scope", "UserSearchFactory", function ($scope, UserSearchFactory) {
  
   // init variables
   $scope.no_results=true;
@@ -117,4 +117,4 @@ ActsAsTalentedModule.controller("UserSearchController", function ($scope, UserSe
   }
  
 
-});
+}]);

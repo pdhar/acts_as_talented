@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("EmployersController", function ($scope, EmployersFactory, notificationFactory) {
+ActsAsTalentedModule.controller("EmployersController", ["$scope", "EmployersFactory", "notificationFactory", function ($scope, EmployersFactory, notificationFactory) {
  
  	// PRIVATE FUNCTIONS 
   var requestSuccess = function () {
@@ -81,4 +81,4 @@ ActsAsTalentedModule.controller("EmployersController", function ($scope, Employe
   // LOADS ALL ITEMS
   $scope.getAllItems();
 
-});
+}]);

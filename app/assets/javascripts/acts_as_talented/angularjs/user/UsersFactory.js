@@ -1,4 +1,4 @@
-ActsAsTalentedModule.factory("UsersFactory", function ($resource) {
+ActsAsTalentedModule.factory("UsersFactory", ["$resource", function ($resource) {
   return {
     users: function(){
       var users = [
@@ -42,4 +42,4 @@ ActsAsTalentedModule.factory("UsersFactory", function ($resource) {
       return users;
     }
   }
-});
+}]);

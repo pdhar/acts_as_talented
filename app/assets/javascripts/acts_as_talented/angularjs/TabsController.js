@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("TabsController", function ($scope, $state) {
+ActsAsTalentedModule.controller("TabsController", ["$scope", "$state", function ($scope, $state) {
 
   $scope.tabClass = { myJobs: 'inactive', 
                       myJobs: 'inactive', 
@@ -21,4 +21,4 @@ ActsAsTalentedModule.controller("TabsController", function ($scope, $state) {
     });
 
   }
-});
+}]);
