@@ -12,9 +12,9 @@ module ActsAsTalented
 
     def update
     	if @employer.update_attributes(update_params)
-	      render json: { status: "success" }
+	      render json: @employer, status: :ok
 	    else
-	      render json: { status: "failure", error: employer.errors.full_messages.join(",") }
+	      render json: { error: @employer.errors.full_messages.join(",") }, status: :unprocessable_entity
 	    end
     end
 

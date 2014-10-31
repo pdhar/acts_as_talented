@@ -2,11 +2,10 @@
 
   <span ng-init=""></span>
 
-  {{ tabClass }}
   <ul ng-controller="TabsController" class="nav nav-tabs nav-justified" role="tablist">
 	  <!-- Tab1 -->
     <li ng-class="tabClass['Employers']" ng-click="makeActiveTab('Employers')">
-      <a href="#">Manage Employers</a>
+      <a ui-sref="Employers">Manage Employers</a>
     </li>
     
     <!-- Tab2 -->
@@ -33,5 +32,4 @@
   <div ui-view>
   </div>
   <!-- <div ng-include src="'acts_as_talented/templates/test.html'"></div>	 -->
-
 </div>
