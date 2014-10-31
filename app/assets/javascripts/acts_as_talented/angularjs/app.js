@@ -39,8 +39,8 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
     })
 	  .state('Employers', {
       url: "/Employers",
-      templateUrl: "acts_as_talented/templates/employers.html",
-      controller: "EmployersController"
+      templateUrl: "acts_as_talented/templates/employers.html"
+      // controller: "EmployersController"
 	  });
 
 }]);

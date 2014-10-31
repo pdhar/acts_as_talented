@@ -36,8 +36,7 @@
 /* require ./angularjs/NotificationFactory */
 //= require ./angularjs/TabsController
 //= require ./angularjs/ProfileController
-//= require ./angularjs/employer/EmployersController
-//= require ./angularjs/employer/EmployersFactory
+
 //= require ./angularjs/applicant/ApplicantsController
 //= require ./angularjs/applicant/ApplicantsFactory
 //= require ./angularjs/user/UserSearchController
