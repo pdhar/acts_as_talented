@@ -65,8 +65,11 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
   // Set the order by column and order
   self.setOrderByColumn = _setOrderByColumn;
 
+  // Apply filter with throttle
   self.filterChanged = _filterChanged;
 
+  // Clear current filter
+  self.clearFilter = _clearFilter;
   //// ---------------- CODE TO RUN ------------
 
   self.initialize();
@@ -314,6 +317,11 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
           self.filter = self.filterText;
       });
     });
+  }
+
+  function _clearFilter() {
+    self.filterText = "";
+    self.filter = "";
   }
 
 };
