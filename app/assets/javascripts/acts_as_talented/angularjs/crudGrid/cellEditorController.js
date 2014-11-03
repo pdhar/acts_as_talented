@@ -34,6 +34,7 @@ function cellEditorController($scope) {
   };
 
   function _openDatePicker($event) {
+    console.log("open date picker");
     $event.preventDefault();
     $event.stopPropagation();
 

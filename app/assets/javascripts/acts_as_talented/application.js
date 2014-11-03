@@ -33,7 +33,6 @@
 //= require_tree ./angularjs/factories
 //= require_tree ./angularjs/crudGrid
 
-/* require ./angularjs/NotificationFactory */
 //= require ./angularjs/TabsController
 //= require ./angularjs/ProfileController
 
