@@ -5,6 +5,19 @@
 </style>
 <div class="row">
 
+  <!--Filter-->
+  <div class="input-group col-md-12 filter">
+    <span class="input-group-addon">
+        <i class="fa fa-search fa-2x"></i>
+    </span>
+
+    <input class="form-control filter-input" type="text" ng-keydown="itemsCtrl.filterChanged()" ng-model="itemsCtrl.filterText" placeholder="filter...">
+
+    <span class="input-group-addon btn btn-default" ng-click="itemsCtrl.clearFilter()" ng-hide="itemsCtrl.filter.length == 0">
+        <i class="fa fa-remove fa-2x"></i>
+    </span>
+  </div>
+
   <!--AngularJS SPA CRUD table-->
   <form name="tableForm">
     <table class="table table-condensed table-hover table-striped" ng-hide="itemsCtrl.loading">
@@ -58,7 +71,7 @@
       </tr>
 
       <!--Content-->
-      <tr ng-repeat="knownItem in itemsCtrl.allItems | orderBy:itemsCtrl.orderByColumn: itemsCtrl.orderByReverse">
+      <tr ng-repeat="knownItem in itemsCtrl.allItems | orderBy:itemsCtrl.orderByColumn: itemsCtrl.orderByReverse | filter:itemsCtrl.filter">
 
         <!--Buttons column-->
         <td class="col-xs-1">

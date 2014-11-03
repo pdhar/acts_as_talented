@@ -1,6 +1,6 @@
-ActsAsTalentedModule.controller("crudgridController", ["$element", "$attrs", "ajaxServiceFactory", "notificationFactory", "modalWindowFactory", itemsController]);
+ActsAsTalentedModule.controller("crudgridController", ["$scope", "$element", "$attrs", "ajaxServiceFactory", "notificationFactory", "modalWindowFactory", "reactiveFactory", itemsController]);
  
-function itemsController($element, $attrs, ajaxServiceFactory, notificationFactory, modalWindowFactory) {
+function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificationFactory, modalWindowFactory, reactiveFactory) {
  
   'use strict';
   var self = this;
@@ -65,6 +65,8 @@ function itemsController($element, $attrs, ajaxServiceFactory, notificationFacto
   // Set the order by column and order
   self.setOrderByColumn = _setOrderByColumn;
 
+  self.filterChanged = _filterChanged;
+
   //// ---------------- CODE TO RUN ------------
 
   self.initialize();
@@ -74,6 +76,10 @@ function itemsController($element, $attrs, ajaxServiceFactory, notificationFacto
   //// PRIVATE fields
 
   var _itemsService;
+
+  // var _createItemThrottle = reactiveFactory.getThrottle(100);
+  // var _updateItemThrottle = reactiveFactory.getThrottle(100);
+  var _filterThrottle     = reactiveFactory.getThrottle(100);
 
   //// PRIVATE Functions - Public Methods Implementation
 
@@ -300,4 +306,14 @@ function itemsController($element, $attrs, ajaxServiceFactory, notificationFacto
     });
   }
  
+  function _filterChanged() {
+    // console.log("asds");
+    _filterThrottle.run(function () {
+      // update filter
+      $scope.$apply(function () {
+          self.filter = self.filterText;
+      });
+    });
+  }
+
 };
