@@ -22,6 +22,7 @@
 //= require bootstrap/button
 
 //= require angular
+//= require angular-mocks
 //= require angular-resource
 //= require angular-route
 //= require angular-rails-templates

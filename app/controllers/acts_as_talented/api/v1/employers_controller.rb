@@ -25,7 +25,7 @@ module ActsAsTalented
     end
 
     def update_params
-    	params.require(:employer).permit(:name)
+    	params.require(:employer).permit(:name, :contact_number)
     end
   end
 end

@@ -19,7 +19,10 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
       url: "/myProfile",
       templateUrl: "acts_as_talented/templates/my_profile.html"
     })    
-
+    .state('companyProfile', {
+      url: "/companyProfile",
+      templateUrl: "acts_as_talented/templates/company_profile.html"
+    })
     .state('myApplicants', {
       abstract: true,
       url: "/myApplicants",
