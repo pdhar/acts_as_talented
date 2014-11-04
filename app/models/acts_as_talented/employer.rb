@@ -5,6 +5,6 @@ module ActsAsTalented
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
 
-    attr_accessible :name, :contact_number#, :email, :password, :remember_me
+    attr_accessible :name, :contact_number, :password
   end
 end
