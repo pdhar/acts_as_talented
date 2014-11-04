@@ -1,4 +1,4 @@
-var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ngResource", "templates"]);
+var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates"]);
  
 ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
  
@@ -33,14 +33,14 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
     .state('myApplicants.detail', {      
       url: '/:id',
       templateUrl: 'acts_as_talented/templates/MyApplicants/my_applicants.detail.html',
-      controller: function($scope, $stateParams){
-        $scope.user = $scope.applicantsList[$stateParams.id];
-      }        
+      controller: ["$scope", "$stateParams", function($scope, $stateParams){
+              $scope.user = $scope.applicantsList[$stateParams.id];
+            }]        
     })
 	  .state('Employers', {
       url: "/Employers",
-      templateUrl: "acts_as_talented/templates/employers.html",
-      controller: "EmployersController"
+      templateUrl: "acts_as_talented/templates/employers.html"
+      // controller: "EmployersController"
 	  });
 
 }]);

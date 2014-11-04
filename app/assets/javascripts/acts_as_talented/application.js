@@ -30,11 +30,13 @@
 //= require_tree ./dependancies/
 
 //= require ./angularjs/app
-//= require ./angularjs/NotificationFactory
+
+//= require_tree ./angularjs/factories
+//= require_tree ./angularjs/crudGrid
+
 //= require ./angularjs/TabsController
 //= require ./angularjs/ProfileController
-//= require ./angularjs/employer/EmployersController
-//= require ./angularjs/employer/EmployersFactory
+
 //= require ./angularjs/applicant/ApplicantsController
 //= require ./angularjs/applicant/ApplicantsFactory
 //= require ./angularjs/user/UserSearchController
