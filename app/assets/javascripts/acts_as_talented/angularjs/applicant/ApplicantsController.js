@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("ApplicantsController", ["$scope", "ApplicantsFactory", function ($scope, ApplicantsFactory) {
+ActsAsTalentedModule.controller("ApplicantsController", ["$scope", "ApplicantsFactory", "notificationFactory", function ($scope, ApplicantsFactory, notificationFactory) {
  
   // init variables
   $scope.no_messages=true;
@@ -12,11 +12,11 @@ ActsAsTalentedModule.controller("ApplicantsController", ["$scope", "ApplicantsFa
 
   // PRIVATE FUNCTIONS 
   var requestSuccess = function () {
-    // notificationFactory.success();
+    notificationFactory.success();
   }
 
-  var requestError = function () {
-    // notificationFactory.error();    
+  var requestError = function (error) {
+    notificationFactory.error(error.statusText);
   }
 
   // Get all items from the server
@@ -25,11 +25,10 @@ ActsAsTalentedModule.controller("ApplicantsController", ["$scope", "ApplicantsFa
     // $scope.applicantsList = ApplicantsFactory.fac(function (success) {
     //   $scope.loading = false;
     // }, requestError);
-    $scope.applicantsList = ApplicantsFactory.messages();
-
+    $scope.applicantsList = ApplicantsFactory.applicants();
+    requestSuccess();
     $scope.loading = false;
     if($scope.applicantsList.length > 0){
-      $scope.no_messages = false;
       $scope.msgInit();
     }    
   }
