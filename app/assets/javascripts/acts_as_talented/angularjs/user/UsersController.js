@@ -1,4 +1,4 @@
-ActsAsTalentedModule.controller("UsersController", ["$scope", "UsersFactory", function ($scope, UsersFactory) {
+ActsAsTalentedModule.controller("UsersController", ["$scope", "UsersFactory", "notificationFactory", function ($scope, UsersFactory, notificationFactory) {
  
   // init variables
   $scope.no_results=true;

@@ -1,19 +1,56 @@
-<div ng-hide="no_messages" class="">
-
-  <div class="heading">
-    <h2 ng-bind="user.name"></h2>  
+<div class="bevy-user-card page-section">
+  <div class="photo">
+    <img ng-src="{{current_applicant.photo}}">
   </div>
-  <div class="heading">
-    <i class="fa fa-briefcase"></i> <span class="caption" ng-bind="user.job_position"></span>
+
+  <div class="module">
+    <h2 ng-bind="current_applicant.name"></h2> 
+    <div class="caption">                
+      <i class="fa fa-birthday-cake"></i> <span ng-bind="current_applicant.age"></span>
+      <i class="fa fa-briefcase"></i> <span ng-bind="current_applicant.status"></span><br />
+      <i class="fa fa-globe"></i> <span ng-bind="current_applicant.location"></span>                
+      <i class="fa fa-book"></i> <span ng-bind="current_applicant.course"></span><br />
+      <i class="fa fa-graduation-cap"></i> <span ng-bind="current_applicant.graduation_year"></span>
+    </div>
+  
+    <div class="caption">
+      <i class="fa fa-user"></i> <span ng-bind="current_applicant.skills"></span><br />
+      <i class="fa fa-book"></i> <span ng-bind="current_applicant.interests"></span><br />
+      <i class="fa fa-graduation-cap"></i> <span ng-bind="current_applicant.experience"></span>
+    </div>  
+  </div>
+
+  <div class="bevy-user-properties">              
+    <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume</a><br />
+    <select ng-model="current_applicant.job_position" ng-options="job.name for job in job_position"></select>
+
+    <br />
+    <a href="#" class="fa fa-star" style="color: #DA521E;"></a>
+    <a href="#" class="fa fa-close" style="color: #DA521E;"></a>
+    <a href="#" class="fa fa-check" style="color: #DA521E;"></a>
+    <a href="#" class="fa fa-envelope" style="color: #DA521E;"></a>
   </div>
 
   <div class="body-desc">
-    <p ng-bind="user.message"></p>  
-  </div>
-
-  <div class="body-apply">
-    <a ng-href="{{user.resume}}" class="button button_main" target="_blank"><i class="fa fa-check"></i> View Resume</a>
+    <p ng-bind="current_applicant.about"></p>  
   </div>
   <div style="clear: both;"></div>
+</div>
 
+<div class="row" style="border-bottom: 1px dashed; padding: 5px 0px;" ng-repeat="msg in focusedThread">
+  <div class="col-xs-3">
+    <span ng-hide="current_user==msg.sender_id">
+      {{msg.sender_name}} -- {{msg.sent_at}}
+    </span>
+  </div>
+
+  <div class="col-xs-6">
+    <p ng-bind="msg.message"></p>
+  </div>
+
+  <div class="col-xs-3">
+    <span ng-show="current_user==msg.sender_id">
+      {{msg.sender_name}} -- {{msg.sent_at}}
+    </span>
+  </div>
 </div>

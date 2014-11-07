@@ -24,20 +24,20 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
       templateUrl: "acts_as_talented/templates/company_profile.html"
     })
     .state('myApplicants', {
-      abstract: true,
+      // abstract: true,
       url: "/myApplicants",
       templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.html",
       controller: "ApplicantsController"     
     })
-    .state('myApplicants.list', { 
-      url: "/list",
-      templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.list.html"              
-    })
+    // .state('myApplicants.list', { 
+    //   url: "/list",
+    //   templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.list.html"              
+    // })
     .state('myApplicants.detail', {      
       url: '/:id',
       templateUrl: 'acts_as_talented/templates/MyApplicants/my_applicants.detail.html',
       controller: ["$scope", "$stateParams", function($scope, $stateParams){
-              $scope.user = $scope.applicantsList[$stateParams.id];
+              $scope.getMsgFromApplicant($stateParams.id);
             }]        
     })
 	  .state('Employers', {

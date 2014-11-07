@@ -16,41 +16,13 @@ describe('Unit: ApplicantsController', function() {
     ctrl = $controller('ApplicantsController', {
       $scope: scope
     });
-
-    ApplicantMsgs = [
-      {
-        name: "Batman",
-        job_position: "Vigilante",
-        message: "I consider myself a worthy candidate, Dark Knight",
-        id: 0,
-        resume: "Cool file/link here"
-      },
-      {
-        name: "Superman",
-        job_position: "Gamer",
-        message: "I consider myself a worthy candidate, Man of Steel",
-        id: 1,
-        resume: "Cool file/link here"
-      },
-      {
-        name: "Flash",
-        job_position: "Coder",
-        message: "I consider myself a worthy candidate, Fastest man!",
-        id: 2,
-        resume: "Cool file/link here"
-      }
-    ];
   }));
 
-  it('should be true', function(){
-    expect(true).toBe(true);
-  });
-
-  it('should get the message that is selected', function () {
-    expect(scope.focusedMsg).toBeNull();
-    scope.getMsg(ApplicantMsgs[0]);
-    expect(scope.focusedMsg).toBe(ApplicantMsgs[0]);
-  });
+  // it('should get the message that is selected', function () {
+  //   expect(scope.focusedThread).toBeNull();
+  //   scope.getAllItems();
+  //   expect(scope.focusedThread).toBe(applicantsList[0]);
+  // });
 
   describe("load messages", function(){
     beforeEach(function(){
@@ -64,7 +36,21 @@ describe('Unit: ApplicantsController', function() {
     });
 
     it("should init 1st message", function(){
-      expect(scope.focusedMsg).toBeTruthy();
+      expect(scope.focusedThread).toBeTruthy();
     });
+
+    it("should init current_applicant", function(){
+      expect(scope.current_applicant).toBeTruthy();
+    });
+
+    it("should get message from applicant", function(){
+      scope.getMsgFromApplicant(scope.applicantsList[1].id) 
+      expect(scope.focusedThread[0].message_id).toEqual(scope.applicantsList[1].message_id);
+    });
+
+    it("should set current_applicant", function(){
+      scope.getApplicant(scope.applicantsList[1].id)
+      expect(scope.current_applicant).toEqual(scope.applicantsList[1]);
+    });    
   })
 })
