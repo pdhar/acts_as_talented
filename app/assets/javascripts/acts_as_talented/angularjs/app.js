@@ -1,4 +1,4 @@
-var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates"]);
+var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates", "ngAutocomplete"]);
  
 ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
  
@@ -12,7 +12,7 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
     })
     .state('searchCandidate', {
       url: "/searchCandidate",
-      templateUrl: "acts_as_talented/templates/search_candidate.html",
+      templateUrl: "acts_as_talented/templates/Users/search.html",
       controller: "UserSearchController"
     })
     .state('myProfile', {
@@ -24,20 +24,20 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
       templateUrl: "acts_as_talented/templates/company_profile.html"
     })
     .state('myApplicants', {
-      abstract: true,
+      // abstract: true,
       url: "/myApplicants",
       templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.html",
       controller: "ApplicantsController"     
     })
-    .state('myApplicants.list', { 
-      url: "/list",
-      templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.list.html"              
-    })
+    // .state('myApplicants.list', { 
+    //   url: "/list",
+    //   templateUrl: "acts_as_talented/templates/MyApplicants/my_applicants.list.html"              
+    // })
     .state('myApplicants.detail', {      
       url: '/:id',
       templateUrl: 'acts_as_talented/templates/MyApplicants/my_applicants.detail.html',
       controller: ["$scope", "$stateParams", function($scope, $stateParams){
-              $scope.user = $scope.applicantsList[$stateParams.id];
+              $scope.getMsgFromApplicant($stateParams.id);
             }]        
     })
 	  .state('Employers', {
@@ -122,4 +122,11 @@ ActsAsTalentedModule.provider('showErrorsConfig', function () {
   this.$get = function () {
     return { showSuccess: _showSuccess };
   };
+});
+
+ActsAsTalentedModule.directive('userCard',  function () {
+  return {
+    restrict: "E",
+    templateUrl: "acts_as_talented/templates/Users/user_card.html"
+  }
 });

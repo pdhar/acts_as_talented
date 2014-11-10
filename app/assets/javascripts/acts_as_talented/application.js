@@ -20,6 +20,7 @@
 //= require bootstrap/collapse
 //= require bootstrap/dropdown
 //= require bootstrap/button
+//= require bootstrap/affix
 
 //= require angular
 //= require angular-mocks

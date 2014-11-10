@@ -1,7 +1,9 @@
 ActsAsTalentedModule.controller("TabsController", ["$scope", "$state", function ($scope, $state) {
 
-  $scope.tabClass = { myJobs: 'inactive', 
-                      myJobs: 'inactive', 
+  $scope.tabClass = { 
+                      Employers: 'active',
+                      companyProfile: 'inactive',
+                      myJobs: 'inactive',
                       searchCandidate: 'inactive', 
                       myProfile: 'inactive', 
                       'myApplicants.list': 'inactive'
@@ -19,6 +21,5 @@ ActsAsTalentedModule.controller("TabsController", ["$scope", "$state", function 
       else
         $scope.tabClass[key] = 'active';
     });
-
   }
 }]);

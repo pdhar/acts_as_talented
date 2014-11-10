@@ -1,0 +1,151 @@
+<div ng-controller="UserSearchController">
+  
+  <div class="page-section">
+    <form class="bevy-user-form" data-remote="true">
+      <input type="text" name="job[search]" id="job_search" placeholder="Search All Jobs..." data-ng-model="search_term" />
+      <button class="button" data-ng-click="searchUsers()">Search</button>
+      <button class="button" data-ng-click="reset_form()">Reset</button>
+    </form>
+  </div>
+
+  <div id="main-container">
+  <!-- show indeed results on landing -->
+    <div class="bevy-user-filter">
+      <h2>Filters</h2>
+      <div class="module" data-spy="affix" data-offset-top="150" data-offset-bottom="100">
+        <!-- hide initially -->
+        <div ng-show="users.length > 0">
+          <div class="heading">Course</div>
+          <select ng-model="filters.course">
+            <option value="relevance">Computers</option>
+            <option value="date">Electronics</option>
+          </select><br>
+          <div class="heading">Skills</div>
+          <input type="text" ng-model="filters.skills" />
+            
+          <br>
+          <div class="heading">Interests</div>
+          <input type="text" ng-model="filters.interests" />
+           <br>
+          <div class="heading">Experince</div>
+          <select ng-model="filters.exp">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3 or 3+</option>
+          </select>
+          <br>
+        </div>
+
+        <div class="heading">Country</div> 
+          <select ng-model="filters.country">
+            <option value="us">United States</option>
+            <option value="ar">Argentina</option>
+            <option value="au">Australia</option>
+            <option value="at">Austria</option>
+            <option value="bh">Bahrain</option>
+            <option value="be">Belgium</option>
+            <option value="br">Brazil </option>
+            <option value="ca">Canada </option>
+            <option value="cl">Chile</option>
+            <option value="cn">China</option>
+            <option value="co">Colombia </option>
+            <option value="cz">Czech Republic </option>
+            <option value="dk">Denmark</option>
+            <option value="fi">Finland</option>
+            <option value="fr">France </option>
+            <option value="de">Germany</option>
+            <option value="gr">Greece </option>
+            <option value="hk">Hong Kong</option>
+            <option value="hu">Hungary</option>
+            <option value="in" selected="selected">India</option>
+            <option value="id">Indonesia</option>
+            <option value="ie">Ireland</option>
+            <option value="il">Israel </option>
+            <option value="it">Italy</option>
+            <option value="jp">Japan</option>
+            <option value="kr">Korea</option>
+            <option value="kw">Kuwait </option>
+            <option value="lu">Luxembourg </option>
+            <option value="my">Malaysia </option>
+            <option value="mx">Mexico </option>
+            <option value="nl">Netherlands</option>
+            <option value="nz">New Zealand</option>
+            <option value="no">Norway </option>
+            <option value="om">Oman </option>
+            <option value="pk">Pakistan </option>
+            <option value="pe">Peru </option>
+            <option value="ph">Philippines</option>
+            <option value="pl">Poland </option>
+            <option value="pt">Portugal </option>
+            <option value="qa">Qatar</option>
+            <option value="ro">Romania</option>
+            <option value="ru">Russia </option>
+            <option value="sa">Saudi Arabia </option>
+            <option value="sg">Singapore</option>
+            <option value="za">South Africa </option>
+            <option value="es">Spain</option>
+            <option value="se">Sweden </option>
+            <option value="ch">Switzerland</option>
+            <option value="tw">Taiwan </option>
+            <option value="tr">Turkey </option>
+            <option value="ae">United Arab Emirates </option>
+            <option value="gb">United Kingdom </option>
+            <option value="ve">Venezuela</option>
+          </select>
+          <br>
+          <div class="heading">Location</div>
+          <input type="text" ng-autocomplete details="location_details" ng-model="filters.location.address" />
+          <br>
+          <button class="button button-white" ng-click="searchJobs()">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bevy-user-search-content">
+      <div ng-hide="no_search_term">
+        <div ng-repeat="user in users">
+          <user-card></user-card>
+        </div>
+
+        <div ng-show="totalResults > 0" class="pagination">
+          <a href="#" ng-show="currentPage!=1" ng-click="paginate(1)">&lt;&lt;</a>
+          <a href="#" ng-show="currentPage!=1" ng-click="paginate(currentPage-1)">Prev</a>
+          <a href="#" ng-show="currentPage!=1" ng-click="paginate(currentPage-1)" ng-bind="currentPage-1"></a>
+          <a href="#" ng-bind="currentPage" class="active"></a>
+          <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(currentPage+1)" ng-bind="currentPage+1"></a>
+          <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(currentPage+1)">Next</a>
+          <a href="#" ng-show="currentPage!=totalPages" ng-click="paginate(totalPages)">&gt;&gt;</a>
+        </div>
+
+        <div class="module text-center" ng-show="end_of_results">
+          No results.
+        </div>      
+      </div>
+
+      <div class="module text-center" ng-show="no_search_term">
+        Enter a search term
+      </div>
+
+    </div>
+
+    <div class="bevy-user-list">
+      <h2>Lists</h2>
+      <ul data-spy="affix" data-offset-top="150" data-offset-bottom="100">
+        <li><a href="#" >Starred</a></li>
+        <li><a href="#" >Ignored</a></li>
+        <li><a href="#" >Accepted</a></li>
+        <li><a href="#" >Messaged</a></li>
+        <li><a href="#" >Add new list</a></li>
+      </ul>
+    </div>  
+  </div>
+  
+</div>
+
+<!-- Mixpanel page visit tracking -->
+<script>
+  // mixpanel.track('Viewed Jobs Index Page', 
+  //   {
+  //     organization: '<%= "#{@org.try(:name)}" %>' 
+  //   })
+</script>
