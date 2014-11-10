@@ -3,50 +3,41 @@
   <div class="page-section">
     <form class="bevy-user-form" data-remote="true">
       <input type="text" name="job[search]" id="job_search" placeholder="Search All Jobs..." data-ng-model="search_term" />
-      <button class="button" data-ng-click="searchUsers(true)">Search</button>
+      <button class="button" data-ng-click="searchUsers()">Search</button>
       <button class="button" data-ng-click="reset_form()">Reset</button>
     </form>
   </div>
 
   <div id="main-container">
-    
   <!-- show indeed results on landing -->
     <div class="bevy-user-filter">
       <h2>Filters</h2>
       <div class="module" data-spy="affix" data-offset-top="150" data-offset-bottom="100">
         <!-- hide initially -->
-        <div ng-show="jobs.q.length">
-          <div class="heading">Sort</div>
-          <select ng-model="jobs.sort">
-            <option value="relevance">Relevance</option>
-            <option value="date">Date</option>
+        <div ng-show="users.length > 0">
+          <div class="heading">Course</div>
+          <select ng-model="filters.course">
+            <option value="relevance">Computers</option>
+            <option value="date">Electronics</option>
           </select><br>
-          <div class="heading">job referral</div>
-          <select ng-model="jobs.siteType">
-            <option value="jobsite">Jobsite</option>
-            <option value="employer">Employer</option>
-          </select>
+          <div class="heading">Skills</div>
+          <input type="text" ng-model="filters.skills" />
+            
           <br>
-          <div class="heading">job type</div>
-          <select ng-model="jobs.jobType">
-            <option value="fulltime">Fulltime</option>
-            <option value="parttime">Parttime</option>
-            <option value="contract">Contract</option>
-            <option value="internship">Internship</option>
-            <option value="temporary">Temporary</option>
-          </select>
+          <div class="heading">Interests</div>
+          <input type="text" ng-model="filters.interests" />
            <br>
-          <div class="heading">limit</div>
-          <select ng-model="jobs.limit">
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
+          <div class="heading">Experince</div>
+          <select ng-model="filters.exp">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3 or 3+</option>
           </select>
           <br>
         </div>
 
-        <div class="heading">country</div> 
-          <select ng-model="jobs.country">
+        <div class="heading">Country</div> 
+          <select ng-model="filters.country">
             <option value="us">United States</option>
             <option value="ar">Argentina</option>
             <option value="au">Australia</option>
@@ -102,8 +93,8 @@
             <option value="ve">Venezuela</option>
           </select>
           <br>
-          <div class="heading">location</div>
-          <input type="text" ng-model="jobs.location" />
+          <div class="heading">Location</div>
+          <input type="text" ng-autocomplete details="location_details" ng-model="filters.location.address" />
           <br>
           <button class="button button-white" ng-click="searchJobs()">Apply</button>
         </div>
@@ -113,48 +104,7 @@
     <div class="bevy-user-search-content">
       <div ng-hide="no_search_term">
         <div ng-repeat="user in users">
-          <div class="bevy-user-card page-section">
-            <div class="photo">
-              <img ng-src="{{user.photo}}">
-            </div>
-
-            <div class="module">
-              <h2 ng-bind="user.name"></h2> 
-              <div class="caption">                
-                <i class="fa fa-birthday-cake"></i> <span ng-bind="user.age"></span>
-                <i class="fa fa-briefcase"></i> <span ng-bind="user.status"></span><br />
-                <i class="fa fa-globe"></i> <span ng-bind="user.location"></span>                
-                <i class="fa fa-book"></i> <span ng-bind="user.course"></span><br />
-                <i class="fa fa-graduation-cap"></i> <span ng-bind="user.graduation_year"></span>
-              </div>
-            
-              <div class="caption">
-                <i class="fa fa-user"></i> <span ng-bind="user.skills"></span><br />
-                <i class="fa fa-book"></i> <span ng-bind="user.interests"></span><br />
-                <i class="fa fa-graduation-cap"></i> <span ng-bind="user.experience"></span>
-              </div>  
-            </div>
-
-            <div class="bevy-user-properties">              
-              <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume</a><br />
-              <select>
-                <option>Web Developer</option> 
-                <option>Software Engineer</option>
-                <option>Data Analytics</option>
-                <option>Marketing</option>
-              </select><br />
-              <a href="#" class="fa fa-star" style="color: #DA521E;"></a>
-              <a href="#" class="fa fa-close" style="color: #DA521E;"></a>
-              <a href="#" class="fa fa-check" style="color: #DA521E;"></a>
-              <a href="#" class="fa fa-envelope" style="color: #DA521E;"></a>
-
-            </div>
-
-            <div class="body-desc">
-              <p ng-bind="user.about"></p>  
-            </div>
-            <div style="clear: both;"></div>
-          </div>
+          <user-card></user-card>
         </div>
 
         <div ng-show="totalResults > 0" class="pagination">

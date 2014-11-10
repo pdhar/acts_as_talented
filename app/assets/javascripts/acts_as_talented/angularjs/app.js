@@ -1,4 +1,4 @@
-var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates"]);
+var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates", "ngAutocomplete"]);
  
 ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
  
@@ -12,7 +12,7 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
     })
     .state('searchCandidate', {
       url: "/searchCandidate",
-      templateUrl: "acts_as_talented/templates/search_candidate.html",
+      templateUrl: "acts_as_talented/templates/Users/search.html",
       controller: "UserSearchController"
     })
     .state('myProfile', {
@@ -122,4 +122,11 @@ ActsAsTalentedModule.provider('showErrorsConfig', function () {
   this.$get = function () {
     return { showSuccess: _showSuccess };
   };
+});
+
+ActsAsTalentedModule.directive('userCard',  function () {
+  return {
+    restrict: "E",
+    templateUrl: "acts_as_talented/templates/Users/user_card.html"
+  }
 });

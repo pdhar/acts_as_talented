@@ -17,7 +17,33 @@ describe('Unit: UserSearchController', function() {
     });
   }));
 
-  it('should be true', function(){
-    expect(true).toBe(true);
+  describe("load users", function(){
+    
+    it("should fetch users", function(){
+      scope.search_term = "Batman";
+      scope.searchUsers();
+      expect(scope.users).toBeTruthy();
+    })
+
+    it("should not fetch users with no search term", function(){
+      scope.search_term = "";
+      scope.searchUsers();
+      expect(scope.users).toBeNull();
+    })
+    
+  })
+
+  describe("reset_form", function () {
+    beforeEach(function(){
+      scope.search_term = "Batman";
+      scope.searchUsers();
+    })
+
+    it("should reset", function(){
+      expect(scope.users).toBeTruthy();
+      expect(scope.search_term).toBeTruthy();
+      scope.reset_form();
+      expect(scope.users).toBeNull();
+    })
   })
 })
