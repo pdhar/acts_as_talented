@@ -1,27 +1,27 @@
 <div class="bevy-user-card page-section">
   <div class="photo">
-    <img ng-src="{{user.photo}}">
+    <img ng-src="{{user.photo}}" height="150px" width="98%">
   </div>
 
   <div class="module">
-    <h2 ng-bind="user.name"></h2> 
+    <h2 ng-cloak>{{user.first_name}} {{user.last_name}}</h2> 
     <div class="caption">                
-      <i class="fa fa-birthday-cake"></i> <span ng-bind="user.age"></span>
-      <i class="fa fa-briefcase"></i> <span ng-bind="user.status"></span><br />
-      <i class="fa fa-globe"></i> <span ng-bind="user.location"></span>                
-      <i class="fa fa-book"></i> <span ng-bind="user.course"></span><br />
-      <i class="fa fa-graduation-cap"></i> <span ng-bind="user.graduation_year"></span>
+      <i class="fa fa-birthday-cake"></i> <span ng-cloak>{{user.detailed.dob || "  -  "}}</span>
+      <i class="fa fa-briefcase"></i> <span ng-cloak >{{user.detailed.status || "Student"}}</span><br />
+      <i class="fa fa-globe"></i> <span ng-cloak>{{ user.detailed.address || "No address"}}</span>                
+      <i class="fa fa-book"></i> <span ng-cloak>{{user.course || "No course"}}</span><br />
+      <i class="fa fa-graduation-cap"></i> <span ng-cloak>{{user.graduation_year || "Graduation Year"}}</span>
     </div>
   
     <div class="caption">
-      <i class="fa fa-user"></i> <span ng-bind="user.skills"></span><br />
-      <i class="fa fa-book"></i> <span ng-bind="user.interests"></span><br />
-      <i class="fa fa-graduation-cap"></i> <span ng-bind="user.experience"></span>
+      <i class="fa fa-user"></i> <span ng-cloak >{{skills_in_words(user.professional.skills) || "Skills"}}</span><br />
+      <i class="fa fa-book"></i> <span ng-cloak >{{"interests here"}}</span><br />
+      <i class="fa fa-graduation-cap"></i> <span ng-cloak>{{user.professional.work[0].company || "No work details"}}</span>
     </div>  
   </div>
 
   <div class="bevy-user-properties">              
-    <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume</a><br />
+    <a ng-href="#" class="button button_main" target="_blank"><i class="fa fa-check"></i> Resume Link</a><br />
     <select>
       <option>Web Developer</option> 
       <option>Software Engineer</option>
@@ -36,7 +36,7 @@
   </div>
 
   <div class="body-desc">
-    <p ng-bind="user.about"></p>  
+    <p ng-cloak>{{user.detailed.about || "No Description available"}}</p>  
   </div>
   <div style="clear: both;"></div>
 </div>

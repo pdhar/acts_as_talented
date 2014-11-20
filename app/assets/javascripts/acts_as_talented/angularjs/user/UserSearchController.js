@@ -9,8 +9,16 @@ ActsAsTalentedModule.controller("UserSearchController", ["$scope", "UserSearchFa
     address: "",
     lat: "",
     lng: ""
-  }
-  $scope.location_details = null;
+  };
+  $scope.location_details = {};
+  $scope.location_details = {
+    'geometry': {
+      'location': {
+        'k': "",
+        'B': ""
+      }
+    }
+  };
 
   // PRIVATE FUNCTIONS 
   var requestSuccess = function () {
@@ -30,7 +38,7 @@ ActsAsTalentedModule.controller("UserSearchController", ["$scope", "UserSearchFa
   $scope.no_search_term = true;
   $scope.end_of_results=false;
   $scope.show_landing_page = true;
-  $scope.search_term = "qwer";
+  $scope.search_term = "pram";
   $scope.reset = false;
   $scope.users = null;
 
@@ -41,9 +49,19 @@ ActsAsTalentedModule.controller("UserSearchController", ["$scope", "UserSearchFa
       $scope.end_of_results=false;
       $scope.show_landing_page = false;
       $scope.reset = false;
-             
-      $scope.users = UserSearchFactory.users($scope.search_term);
         
+      console.log($scope.filters)
+      // first name and last name as name
+      $scope.users = UserSearchFactory.Users.query({
+        keyword: $scope.search_term,
+        course:     $scope.filters.course,
+        skills:     $scope.filters.skills,
+        interests:  $scope.filters.interests,
+        experience: $scope.filters.exp,
+        location:   $scope.filters.location.address,
+        country:    $scope.filters.country
+      });
+
     } else {
       $scope.no_search_term = true;
     }
@@ -64,6 +82,13 @@ ActsAsTalentedModule.controller("UserSearchController", ["$scope", "UserSearchFa
     $scope.filters.location.lat = $scope.location_details['geometry']['location']['k'];
     $scope.filters.location.lng = $scope.location_details['geometry']['location']['B'];
   });
- 
+
+  $scope.skills_in_words = function(skills){
+    var skill_list = skills.slice(0,3).map(function(s){
+      return s.name
+    }).toString();
+    return skill_list.replace(/,/g, ", ");
+  }
+
 
 }]);
