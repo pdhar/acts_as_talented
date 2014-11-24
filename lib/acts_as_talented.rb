@@ -7,6 +7,7 @@ require "autoprefixer-rails"
 require "angularjs-rails"
 require "angular-rails-templates"
 require "protected_attributes"
+require "will_paginate"
 
 module ActsAsTalented
 	class << self

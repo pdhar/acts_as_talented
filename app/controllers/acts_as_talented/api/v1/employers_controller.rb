@@ -7,7 +7,8 @@ module ActsAsTalented
     respond_to :json
 
     def index
-      respond_with Employer.all.to_json
+      employers = Employer.paginate(page: params[:page] || 1 , per_page: params[:per_page] || 10)
+      render json: [{ data: employers, count: Employer.all.size }], status: :ok
     end
 
     def update

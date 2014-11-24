@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise"
   s.add_dependency "cancan"
   s.add_dependency "protected_attributes"
-
+  s.add_dependency "will_paginate", "~> 3.0"
   s.add_dependency "angularjs-rails"
   s.add_dependency "angular-rails-templates"
   s.add_dependency "bootstrap-sass", "~> 3.2"

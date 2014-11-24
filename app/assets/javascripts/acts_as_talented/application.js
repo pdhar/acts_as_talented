@@ -10,37 +10,3 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-//= require jquery
-//= require jquery_ujs
- 
-//= require bootstrap/modal
-//= require bootstrap/tab
-//= require bootstrap/alert
-//= require bootstrap/collapse
-//= require bootstrap/dropdown
-//= require bootstrap/button
-//= require bootstrap/affix
-
-//= require angular
-//= require angular-mocks
-//= require angular-resource
-//= require angular-route
-//= require angular-rails-templates
-
-//= require_tree ./dependancies/
-
-//= require ./angularjs/app
-
-//= require_tree ./angularjs/factories
-//= require_tree ./angularjs/crudGrid
-
-//= require ./angularjs/TabsController
-//= require ./angularjs/ProfileController
-
-//= require ./angularjs/applicant/ApplicantsController
-//= require ./angularjs/applicant/ApplicantsFactory
-//= require ./angularjs/user/UserSearchController
-//= require ./angularjs/user/UserSearchFactory
-
-//= require_tree ./templates/

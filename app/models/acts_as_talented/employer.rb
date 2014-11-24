@@ -6,5 +6,7 @@ module ActsAsTalented
            :recoverable, :rememberable, :trackable, :validatable
 
     attr_accessible :name, :contact_number, :password
+
+    # Add address:text description:text domain_id:integer rating:integer registration_date:date
   end
 end
