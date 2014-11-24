@@ -22,6 +22,8 @@
 
   <h2 class="margin-top-sm margin-bottom-sm col-sm-8 col-sm-offset-2">Edit Profile</h2>
 
+  {{user}}
+
   <form name="userForm" novalidate>
     <div class="form-group col-sm-8 col-sm-offset-2 margin-bottom-sm" show-errors='{showSuccess: true}'>
       <label class="control-label">Name</label>
@@ -36,6 +38,12 @@
       <p class="help-block" ng-if="userForm.email.$error.email">The email address is invalid</p>
     </div>
     
+    <!-- address:text description:text domain_id:integer rating:integer registration_date:date -->
+
+    <form-group-include test="asjdkhasjkd" placeholder="Address" object-name="address">
+
+    </form-group-include>
+
     <div class="col-sm-8 col-sm-offset-2 margin-bottom-sm">
     	<button class="btn btn-primary" ng-click="save()">Update Profile</button>	
     	<button class="btn btn-link" ng-click="reset()">Reset</button>	

@@ -71,7 +71,7 @@
       </tr>
 
       <!--Content-->
-      <tr ng-repeat="knownItem in itemsCtrl.allItems | orderBy:itemsCtrl.orderByColumn: itemsCtrl.orderByReverse | filter:itemsCtrl.filter">
+      <tr dir-paginate="knownItem in itemsCtrl.allItems | orderBy:itemsCtrl.orderByColumn: itemsCtrl.orderByReverse | filter:itemsCtrl.filter | itemsPerPage: pageSize" total-items="totalItems">
 
         <!--Buttons column-->
         <td class="col-xs-1">
@@ -121,9 +121,11 @@
       </tr>
 
     </table>
+
   </form>
 
   <!--Loading indicator-->
   <img src="<%= asset_path('acts_as_talented/ajax-loader.gif') %>" ng-show="itemsCtrl.loading" class="center-block" title="Loading..." />
- 
+
+  <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>

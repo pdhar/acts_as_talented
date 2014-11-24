@@ -12,7 +12,6 @@ ActsAsTalentedModule.directive('crudGrid', function () {
 		scope: true,
 		// view
 		templateUrl: 'acts_as_talented/templates/crudGrid/crudGridView.html',
-		// acts_as_talented/templates/my_jobs.html
 		// controller
 		controller: "crudgridController as itemsCtrl"
 	}

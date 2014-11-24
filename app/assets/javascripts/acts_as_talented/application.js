@@ -32,6 +32,7 @@
 
 //= require ./angularjs/app
 
+//= require_tree ./angularjs/directives
 //= require_tree ./angularjs/factories
 //= require_tree ./angularjs/crudGrid
 
@@ -42,5 +43,8 @@
 //= require ./angularjs/applicant/ApplicantsFactory
 //= require ./angularjs/user/UserSearchController
 //= require ./angularjs/user/UserSearchFactory
+
+//= require ./angularjs/tempController
+
 
 //= require_tree ./templates/

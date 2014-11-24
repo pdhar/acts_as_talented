@@ -3,7 +3,7 @@ ActsAsTalentedModule.controller('ProfileController', ["$scope", function($scope)
     $scope.$broadcast('show-errors-check-validity');
     
     if ($scope.userForm.$valid) {
-      alert('User saved');
+      // alert('User saved');
       $scope.reset();
     }
   };

@@ -1,6 +1,17 @@
 <h1>Employers </h1>
 
 <div class="row">
+  <!-- <ul ng-controller="MyController">
+    <li dir-paginate="meal in meals | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ meal }}</li>
+  </ul>
+
+  <div ng-controller="OtherController" class="other-controller">
+    <small>this is in "OtherController"</small>
+    <div class="text-center">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="acts_as_talented/templates/pagination/dirPaginationTpl.html"></dir-pagination-controls>
+    </div>
+  </div> -->
+
   <div crud-grid
     server-url='/acts_as_talented/api/v1/employers'
     columns-definition='[

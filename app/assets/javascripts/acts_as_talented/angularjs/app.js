@@ -1,8 +1,9 @@
-var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates", "ngAutocomplete"]);
+
+var ActsAsTalentedModule = angular.module("ActsAsTalentedModule", ["ui.router", "ui.bootstrap", "ui.bootstrap.datepicker", "ngResource", "templates", "angularUtils.directives.dirPagination"]);
  
 ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
  
-  // For any unmatched URL, redirect to stock
+  // For any unmatched URL, redirect to Employers
   $urlRouterProvider.otherwise("/Employers");
 
   $stateProvider
@@ -48,81 +49,81 @@ ActsAsTalentedModule.config(["$stateProvider", "$urlRouterProvider", function ($
 
 }]);
 
-ActsAsTalentedModule.directive('showErrors', ["$timeout", "showErrorsConfig", function ($timeout, showErrorsConfig) {
-  var getShowSuccess, linkFn;
+// ActsAsTalentedModule.directive('showErrors', ["$timeout", "showErrorsConfig", function ($timeout, showErrorsConfig) {
+//   var getShowSuccess, linkFn;
     
-  getShowSuccess = function (options) {
-    var showSuccess;
-    showSuccess = showErrorsConfig.showSuccess;
-    if (options && options.showSuccess != null) {
-      showSuccess = options.showSuccess;
-    }
-    return showSuccess;
-  };
+//   getShowSuccess = function (options) {
+//     var showSuccess;
+//     showSuccess = showErrorsConfig.showSuccess;
+//     if (options && options.showSuccess != null) {
+//       showSuccess = options.showSuccess;
+//     }
+//     return showSuccess;
+//   };
 
-  linkFn = function (scope, el, attrs, formCtrl) {
-    var blurred, inputEl, inputName, inputNgEl, options, showSuccess, toggleClasses;
-    blurred = false;
-    options = scope.$eval(attrs.showErrors);
-    showSuccess = getShowSuccess(options);
-    inputEl = el[0].querySelector('[name]');
-    inputNgEl = angular.element(inputEl);
-    inputName = inputNgEl.attr('name');
-    if (!inputName) {
-      throw 'show-errors element has no child input elements with a \'name\' attribute';
-    }
-    inputNgEl.bind('blur', function () {
-      blurred = true;
-      return toggleClasses(formCtrl[inputName].$invalid);
-    });
-    scope.$watch(function () {
-      return formCtrl[inputName] && formCtrl[inputName].$invalid;
-    }, function (invalid) {
-      if (!blurred) {
-        return;
-      }
-      return toggleClasses(invalid);
-    });
-    scope.$on('show-errors-check-validity', function () {
-      return toggleClasses(formCtrl[inputName].$invalid);
-    });
-    scope.$on('show-errors-reset', function () {
-      return $timeout(function () {
-        el.removeClass('has-error');
-        el.removeClass('has-success');
-        return blurred = false;
-      }, 0, false);
-    });
-    return toggleClasses = function (invalid) {
-      el.toggleClass('has-error', invalid);
-      if (showSuccess) {
-        return el.toggleClass('has-success', !invalid);
-      }
-    };
-  };
-  return {
-    restrict: 'A',
-    require: '^form',
-    compile: function (elem, attrs) {
-      if (!elem.hasClass('form-group')) {
-        throw 'show-errors element does not have the \'form-group\' class';
-      }
-      return linkFn;
-    }
-  };
+//   linkFn = function (scope, el, attrs, formCtrl) {
+//     var blurred, inputEl, inputName, inputNgEl, options, showSuccess, toggleClasses;
+//     blurred = false;
+//     options = scope.$eval(attrs.showErrors);
+//     showSuccess = getShowSuccess(options);
+//     inputEl = el[0].querySelector('[name]');
+//     inputNgEl = angular.element(inputEl);
+//     inputName = inputNgEl.attr('name');
+//     if (!inputName) {
+//       throw 'show-errors element has no child input elements with a \'name\' attribute';
+//     }
+//     inputNgEl.bind('blur', function () {
+//       blurred = true;
+//       return toggleClasses(formCtrl[inputName].$invalid);
+//     });
+//     scope.$watch(function () {
+//       return formCtrl[inputName] && formCtrl[inputName].$invalid;
+//     }, function (invalid) {
+//       if (!blurred) {
+//         return;
+//       }
+//       return toggleClasses(invalid);
+//     });
+//     scope.$on('show-errors-check-validity', function () {
+//       return toggleClasses(formCtrl[inputName].$invalid);
+//     });
+//     scope.$on('show-errors-reset', function () {
+//       return $timeout(function () {
+//         el.removeClass('has-error');
+//         el.removeClass('has-success');
+//         return blurred = false;
+//       }, 0, false);
+//     });
+//     return toggleClasses = function (invalid) {
+//       el.toggleClass('has-error', invalid);
+//       if (showSuccess) {
+//         return el.toggleClass('has-success', !invalid);
+//       }
+//     };
+//   };
+//   return {
+//     restrict: 'A',
+//     require: '^form',
+//     compile: function (elem, attrs) {
+//       if (!elem.hasClass('form-group')) {
+//         throw 'show-errors element does not have the \'form-group\' class';
+//       }
+//       return linkFn;
+//     }
+//   };
 
-}]);
+// }]);
 
-ActsAsTalentedModule.provider('showErrorsConfig', function () {
-  var _showSuccess;
-  _showSuccess = false;
-  this.showSuccess = function (showSuccess) {
-    return _showSuccess = showSuccess;
-  };
-  this.$get = function () {
-    return { showSuccess: _showSuccess };
-  };
-});
+// ActsAsTalentedModule.provider('showErrorsConfig', function () {
+//   var _showSuccess;
+//   _showSuccess = false;
+//   this.showSuccess = function (showSuccess) {
+//     return _showSuccess = showSuccess;
+//   };
+//   this.$get = function () {
+//     return { showSuccess: _showSuccess };
+//   };
+// });
 
 ActsAsTalentedModule.directive('userCard',  function () {
   return {
@@ -130,3 +131,4 @@ ActsAsTalentedModule.directive('userCard',  function () {
     templateUrl: "acts_as_talented/templates/Users/user_card.html"
   }
 });
+

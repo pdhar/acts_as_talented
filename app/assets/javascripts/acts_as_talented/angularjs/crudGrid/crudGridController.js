@@ -9,7 +9,22 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
 
   //// PUBLIC fields
 
-  // Columns he grid should display
+  // Pagination settings
+
+  $scope.totalItems = 250; // this should match however many results your API puts on one page
+  $scope.pageSize   = 10;
+  $scope.pagination = {
+    current: 1
+  };
+
+  $scope.pageChanged = _pageChanged;
+
+  function _pageChanged(newPage) {
+    console.log("pageChanged to ", newPage);
+    self.getAllItems(newPage);
+  }
+
+  // Columns the grid should display
   self.columnsDefinition = [];
 
   // All items
@@ -94,7 +109,7 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
     self.columnsDefinition = angular.fromJson($attrs.columnsDefinition);
 
     // Initialize
-    self.getAllItems();
+    self.getAllItems($scope.pagination.current);
   }
 
   function _toggleAddMode() {
@@ -201,11 +216,13 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
     modalWindowFactory.show(title, msg, confirmCallback);
   };
 
-  function _getAllItems() {
+  function _getAllItems(page) {
     self.loading = true;
-    self.allItems = _itemsService.query(function () {
+    _itemsService.query({ page: page, per_page: self.pageSize }, function (result) {
       // success callback
-      self.loading = false;
+      self.allItems     = result[0].data;
+      $scope.totalItems = result[0].count;
+      self.loading      = false;
     },
     // error callback
     function () {
@@ -314,7 +331,8 @@ function itemsController($scope, $element, $attrs, ajaxServiceFactory, notificat
     _filterThrottle.run(function () {
       // update filter
       $scope.$apply(function () {
-          self.filter = self.filterText;
+        self.filter = self.filterText;
+        // apply filter server side
       });
     });
   }
